@@ -152,6 +152,8 @@ function elasticCollisions(balls) {
         for(var j = i + 1; j < balls.length; j++) {
             var b2 = balls[j];
 
+			if(!doBoxesIntersect(b1, b2)) continue;
+
             if(b1.pos.dist(b2.pos) <= b1.rad + b2.rad) {
                 calculateElasticCollision(b1, b2);
             }
