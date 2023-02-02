@@ -166,6 +166,12 @@ function applyFriction(objects, friAmount) {
 	}
 }
 
+function applyVelocity(objects) {
+	for(var i = 0; i < objects.length; i++) {
+		objects[i].pos.accum(objects[i].vel);
+	}
+}
+
 // Each object needs a box
 function bounceWithinCanvas(objects, canvas) {
 	if(objects[i].pos.x < objects[i].box.x) objects[i].vel.x *= -1;
